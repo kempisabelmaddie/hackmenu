@@ -1,0 +1,48 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1000px 200px;
+    height:300px;
+    grid-gap: 12px;
+}
+
+.menu{
+    background-color: cornflowerblue;
+}
+
+.menu-cards {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.menu-cards > div {
+  background-color: #f1f1f1;
+  width: 180px;
+  height: 280px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.checkout{
+    background-color: navajowhite;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 250px;
+}
+  
+#checkout-cards > div {
+    background-color: #f1f1f1;
+    width: 230px;
+    height: 80px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.talk-box{
+    background-color: mistyrose;
+    height: 160px;
+}
