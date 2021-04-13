@@ -1,0 +1,46 @@
+/* layout */
+.wrapper {
+    display: grid;
+    grid-template-columns: 625px 625px;
+    height:300px;
+    grid-gap: 12px;
+}
+
+.total{
+    background-color: cornflowerblue;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.total > div{
+    background-color: pink;
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+.credit-card{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.credit-card > div {
+    border: solid black;
+    height: 100px;
+}
+
+.credit-card > div >img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    /* background-color: navajowhite; */
+}

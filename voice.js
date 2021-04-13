@@ -18,24 +18,24 @@ recognition.addEventListener("result", (e) => {
 
   p.innerText = text;
   if (e.results[0].isFinal) {
-    if (text.includes("next page")) {
+    if (text.includes("page")) {
       p = document.createElement("p");
       p.classList.add("replay");
-      p.innerText = "sure thang";
+      // p.innerText = "sure thang";
       texts.appendChild(p);
-      navigate();
+      navigate(text);
     }
     if (text.includes("burger")) {
       p = document.createElement("p");
       p.classList.add("replay");
-      p.innerText = "sure thang";
+      p.innerText = "sure";
       texts.appendChild(p);
       addCart(text);
     }
     if (text.includes("soda")) {
       p = document.createElement("p");
       p.classList.add("replay");
-      p.innerText = "sure thang";
+      p.innerText = "sure";
       texts.appendChild(p);
       addCart(text);
     }
@@ -59,6 +59,13 @@ recognition.addEventListener("result", (e) => {
       p.innerText = "sure";
       texts.appendChild(p);
       addCart(text);
+    }
+    if (text.includes("cash")||text.includes("visa")||text.includes("MasterCard")||text.includes("Union pay")||text.includes("octopus")) {
+      p = document.createElement("p");
+      p.classList.add("replay");
+      p.innerText = "sure";
+      texts.appendChild(p);
+      payment(text);
     }
     p = document.createElement("p");
   }
@@ -85,14 +92,50 @@ function decrementValue(){
   document.getElementById('number').value = value;
 }
 
-function navigate(){
-  window.location.href = "menu.html";
+function navigate(text){
+  var page = text.split(" ", 1);
+  console.log(page.join(""))
+  switch(page.join("")) {
+    case "menu":
+      var nav = page.concat(".html");
+      window.location.href = nav.join("");
+      break;
+    case "seating":
+      var nav = page.concat(".html");
+      window.location.href = nav.join("");
+      break;
+    case "cart":
+      var nav = page.concat(".html");
+      window.location.href = nav.join("");
+      break;
+    case "payment":
+      var nav = page.concat(".html");
+      window.location.href = nav.join("");
+      break;
+    default:
+      var div = document.createElement("div");
+      div.innerHTML = "page not found";
+      document.getElementById("pageerror").appendChild(div);
+  }
+  
+  // window.location.href = nav.join("");
 }
 
 function addCart(text){
   var div = document.createElement("div");
   div.innerHTML = text;
   document.getElementById("checkout-cards").appendChild(div);
+}
+
+function payment(text){
+  var idsymbol = "#"
+  if (text == "Union pay"){
+    text = "unionpay"
+  }
+  // console.log(idsymbol)
+  console.log(idsymbol.concat(text))
+  let myElement = document.querySelector(idsymbol.concat(text));
+  myElement.style.backgroundColor = "green";
 }
 
 

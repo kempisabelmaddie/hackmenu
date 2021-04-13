@@ -1,8 +1,9 @@
+/* layout */
 .wrapper {
-    display: grid;
-    grid-template-columns: 1000px 200px;
-    height:300px;
-    grid-gap: 12px;
+  display: grid;
+  grid-template-columns: 1000px 200px;
+  height:300px;
+  grid-gap: 12px;
 }
 
 .menu{
@@ -42,7 +43,3 @@
     font-size: 30px;
 }
 
-.talk-box{
-    background-color: mistyrose;
-    height: 160px;
-}
