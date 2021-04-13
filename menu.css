@@ -37,6 +37,7 @@
   flex-wrap: nowrap;
   flex-direction: column;
   width: 250px;
+  align-items: center;
 }
 
 #checkout-cards > div {

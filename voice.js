@@ -9,6 +9,9 @@ recognition.interimResults = true;
 
 let p = document.createElement("p");
 
+const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
+const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
+
 recognition.addEventListener("result", (e) => {
   texts.appendChild(p);
   const text = Array.from(e.results)
@@ -21,51 +24,27 @@ recognition.addEventListener("result", (e) => {
     if (text.includes("page")) {
       p = document.createElement("p");
       p.classList.add("replay");
-      // p.innerText = "sure thang";
+      p.innerText = "Okay, navigating you to next page";
       texts.appendChild(p);
       navigate(text);
     }
-    if (text.includes("burger")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    for (var i = 0; i<food.length; i++){
+      if (text.includes(food[i].toLowerCase())){
+        p = document.createElement("p");
+        p.classList.add("replay");
+        p.innerText = "Sure, adding "+food[i].toLowerCase()+" to cart";
+        texts.appendChild(p);
+        addCart(food[i]);
+      }
     }
-    if (text.includes("soda")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
-    }
-    if (text.includes("salad")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
-    }
-    if (text.includes("pasta")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
-    }
-    if (text.includes("rice")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
-    }
-    if (text.includes("cash")||text.includes("visa")||text.includes("MasterCard")||text.includes("Union pay")||text.includes("octopus")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      payment(text);
+    for (var i = 0; i<payments.length; i++){
+      if (text.includes(payments[i].toLowerCase())){
+        p = document.createElement("p");
+        p.classList.add("replay");
+        p.innerText = "Sure, will check out by "+payments[i];
+        texts.appendChild(p);
+        payment(payments[i]);
+      }
     }
     p = document.createElement("p");
   }
@@ -129,9 +108,7 @@ function addCart(text){
 
 function payment(text){
   var idsymbol = "#"
-  if (text == "Union pay"){
-    text = "unionpay"
-  }
+  text = text.replace(" ","").toLowerCase();
   // console.log(idsymbol)
   console.log(idsymbol.concat(text))
   let myElement = document.querySelector(idsymbol.concat(text));
