@@ -7,61 +7,56 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-          <ul class="nav">
-            <a href="home.html">Home</a>
-            <a href="seating.html">Seating</a>
-            <a href="menu.html">Menu</a>
-            <a class="active" href="payment.html">Payment</a>
-          </ul>
-        </nav>
-    </header>
-    <h1>PAYMENT</h1>
-    <div class="wrapper">
-        <div class="total">
-          <div style="flex:1;"><div>Total:<br>$237.52</div></div>
-          <div style="flex:1;"><div>View Cart</div></div>
-        </div>
+  <header>
+      <nav>
+        <ul class="nav">
+          <a href="home.html">Home</a>
+          <a href="seating.html">Seating</a>
+          <a href="menu.html">Menu</a>
+          <a class="active" href="payment.html">Payment</a>
+        </ul>
+      </nav>
+  </header>
+  <h1>PAYMENT</h1>
+  <div class="wrapper">
+      <div class="total">
+        Total:<br>$237.52
+      </div>
 
-        <table class="credit-card">
-          <tr>
-            <td id="cash">
-              <img src="assets/payment/cash.png" alt="cash">
-            </td>
-            <td id="visa">
-              <img src="assets/payment/visa.png" alt="visa">
-            </td>
-            <td id="mastercard"> 
-              <img src="assets/payment/mastercard.png" alt="mastercard">
-            </td>
-          </tr>
-          <tr>
-            <td id="octopus">
-              <img src="assets/payment/octopus.png" alt="octopus">
-            </td>
-            <td id="alipay">
-              <img src="assets/payment/alipay.png" alt="visa">
-            </td>
-            <td id="unionpay">
-              <img src="assets/payment/unionpay.png" alt="unionpay">
-            </td>
-          </tr>
-        </table>
+      <table class="credit-card">
+        <tr>
+          <td id="cash">
+            <img src="assets/payment/cash.png" alt="cash">
+          </td>
+          <td id="visa">
+            <img src="assets/payment/visa.png" alt="visa">
+          </td>
+          <td id="mastercard"> 
+            <img src="assets/payment/mastercard.png" alt="mastercard">
+          </td>
+        </tr>
+        <tr>
+          <td id="octopus">
+            <img src="assets/payment/octopus.png" alt="octopus">
+          </td>
+          <td id="alipay">
+            <img src="assets/payment/alipay.png" alt="visa">
+          </td>
+          <td id="unionpay">
+            <img src="assets/payment/unionpay.png" alt="unionpay">
+          </td>
+        </tr>
+      </table>
 
+  </div>
+
+  <div class="talk-box">
+    <h1> How would you like to pay ? </h1>
+    <div class="container">
+      <div class="texts">
+      </div>
+      <div id="pageerror"></div>
     </div>
-
-    <div class="talk-box">
-      <h1> How would you like to pay ? </h1>
-      <form>
-          <section>
-              <div class="container">
-                <div class="texts">
-                </div>
-                <div id="pageerror"></div>
-              </div>
-          </section>
-      </form>
   </div>
 
   <script src="voice.js"></script>

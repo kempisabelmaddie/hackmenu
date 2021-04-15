@@ -8,7 +8,7 @@
 }
 
 .total {
-  background-color: cornflowerblue;
+  background-color: #ddd;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -19,9 +19,9 @@
   margin: 25px;
 }
 
-.total > div {
-  background-color: pink;
+/* .total > div {
   height: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   align-self: center;
@@ -39,7 +39,7 @@
   vertical-align: middle;
   text-align: center;
   font-size: 30px;
-}
+} */
 
 .credit-card {
   flex: 2;
@@ -67,13 +67,13 @@ img {
   height: 80px;
 }
 
-div::before {
+.wrapper::before {
   content: "";
   background: url(bg_pay.png);
   background-color: #eff4f7;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.1;
+  opacity: 0.3;
   top: 0;
   left: 0;
   bottom: 0;
