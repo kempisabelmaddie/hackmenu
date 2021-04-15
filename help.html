@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="help.css">
+    <link rel="stylesheet" href="general.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav">
+              <a href="home.html">Home</a>
+              <a href="seating.html">Seating</a>
+              <a href="menu.html">Menu</a>
+              <a class ="active" href="help.html">Help</a>
+              <a href="cart.html">Cart</a>
+              <a href="payment.html">Payment</a>
+            </ul>
+          </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="empty">
+        </div>
+
+        <div class="help">
+            <div class="help-table">
+                <div class="mainservice">
+                    <div id="cutlery"><img src="help/cutlery.png"></div>
+                    <div id="water"><img src="help/water.png"></div>
+                    <div id="payment">Payment</div>
+                    <div id="cleaning">Cleaning</div>
+                </div>
+                <div class="otherservice">
+                    <div id="others">Others</div>
+                </div>
+            </div>
+        </div>
+        <div class="talk-box">
+            <h1>How would you like to pay?</h1>
+            <form>
+                <section>
+                    <div class="container">
+                      <div class="texts">
+                      </div>
+                      <div id="pageerror"></div>
+                    </div>
+                </section>
+            </form>
+        </div>
+        <script src="voice.js"></script>
+    </div>
+
+</body>
+
+</html>

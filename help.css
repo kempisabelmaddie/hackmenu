@@ -1,0 +1,58 @@
+/* layout */
+.wrapper {
+    display: grid;
+    grid-template-columns: 625px 625px;
+    height: 480px;
+    grid-gap: 12px;
+}
+
+.empty{
+    /* border: solid black; */
+}
+
+.help{
+    border: solid black;
+    height: 300px;
+}
+
+.help-table{
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    margin: auto;
+    
+}
+
+.mainservice{
+    height: 250px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 0px 80px 10px 80px;
+    grid-gap: 20px;
+}
+
+.mainservice > div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* padding: 50px 0; */
+    /* width: 150px; */
+    border: black solid;
+}
+
+.otherservice{
+    height: 100px;
+    text-align: center;
+    padding: 20px 80px 10px 80px;
+}
+
+.otherservice > div{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 35px;
+    width: 90px;
+    height: 40px;
+    /* border: black solid; */
+    text-align: center;
+}

@@ -60,13 +60,22 @@ recognition.addEventListener("result", (e) => {
       texts.appendChild(p);
       addCart(text);
     }
-    if (text.includes("cash")||text.includes("visa")||text.includes("MasterCard")||text.includes("Union pay")||text.includes("octopus")) {
+    if (text.includes("cash")||text.includes("visa")||text.includes("MasterCard")||text.includes("Union pay")||text.includes("octopus")
+    ||text.includes("cutlery")||text.includes("water")||text.includes("payment")||text.includes("cleaning")||text.includes("others")) {
       p = document.createElement("p");
       p.classList.add("replay");
       p.innerText = "sure";
       texts.appendChild(p);
       payment(text);
     }
+    if (text.includes("4")) {
+      p = document.createElement("p");
+      p.classList.add("replay");
+      p.innerText = "sure";
+      texts.appendChild(p);
+      seating();
+    }
+
     p = document.createElement("p");
   }
 });
@@ -138,4 +147,6 @@ function payment(text){
   myElement.style.backgroundColor = "green";
 }
 
-
+function seating(){
+  document.getElementById('map').src='./UI/MAP.png';
+}
