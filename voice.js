@@ -6,60 +6,66 @@ window.SpeechRecognition =
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
+var textIndex = 0;
 
-let p = document.createElement("p");
+let div = document.createElement("div");
+div.classList.add("spoken");
+
+const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
+const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
+
+const pushToTextbox = (text) => {
+  var newdiv = document.createElement("div");
+  newdiv.classList.add("replay");
+  newdiv.innerHTML = text;
+  texts.appendChild(newdiv);
+}
 
 recognition.addEventListener("result", (e) => {
-  texts.appendChild(p);
+  texts.appendChild(div);
   const text = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
-    .join("");
+    .join("").substr(textIndex);
 
-  p.innerText = text;
+  div.innerHTML = text;
   if (e.results[0].isFinal) {
+    textIndex = text.length;
+    var hasAction = false;
     if (text.includes("page")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      // p.innerText = "sure thang";
-      texts.appendChild(p);
+      pushToTextbox("Okay, navigating you to next page");
       navigate(text);
+      hasAction = true;
     }
-    if (text.includes("burger")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    var foodAdded = [];
+    for (var i = 0; i<food.length; i++){
+      if (text.includes(food[i].toLowerCase())){
+        addCart(food[i]);
+        foodAdded.push(food[i]);
+        hasAction = true;
+      }
     }
-    if (text.includes("soda")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    if (foodAdded.length > 0){
+      pushToTextbox("Sure, added "+foodAdded.join(", ")+" to cart")
     }
-    if (text.includes("salad")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    var foundPayments = []
+    for (var i = 0; i<payments.length; i++){
+      if (text.includes(payments[i].toLowerCase()) || text.includes(payments[i])){
+        foundPayments.push(payments[i]);
+      }
     }
-    if (text.includes("pasta")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    if (foundPayments.length===1){
+      pushToTextbox("Sure, will check out by "+foundPayments[0]);
+      payment(foundPayments[0]);
+      hasAction = true;
+    } else if (foundPayments.length>1){
+      pushToTextbox("You mentioned "+foundPayments.join(", ")+". Which method would you prefer?");
+      hasAction = true;
     }
-    if (text.includes("rice")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "sure";
-      texts.appendChild(p);
-      addCart(text);
+    if (!hasAction){
+      pushToTextbox("Sorry, we haven't detected an action to perform. Can you try again?")
     }
+    //isabel
     if (text.includes("cash")||text.includes("visa")||text.includes("MasterCard")||text.includes("Union pay")||text.includes("octopus")
     ||text.includes("cutlery")||text.includes("water")||text.includes("payment")||text.includes("cleaning")||text.includes("others")) {
       p = document.createElement("p");
@@ -75,8 +81,15 @@ recognition.addEventListener("result", (e) => {
       texts.appendChild(p);
       seating();
     }
+    //
 
     p = document.createElement("p");
+    const len = () => texts.innerHTML.match(/class=/g).length
+    while (len() > 4){
+      texts.removeChild(texts.firstChild);
+    }
+    div = document.createElement("div");
+    div.classList.add("spoken");
   }
 });
 
@@ -138,15 +151,11 @@ function addCart(text){
 
 function payment(text){
   var idsymbol = "#"
-  if (text == "Union pay"){
-    text = "unionpay"
-  }
-  // console.log(idsymbol)
-  console.log(idsymbol.concat(text))
-  let myElement = document.querySelector(idsymbol.concat(text));
+  text = text.replace(" ","").toLowerCase();
+  var myElement = document.querySelector(idsymbol+text);
   myElement.style.backgroundColor = "green";
 }
-
+//isabel
 function seating(){
   document.getElementById('map').src='./UI/MAP.png';
 }

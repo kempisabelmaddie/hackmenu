@@ -7,50 +7,60 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-          <ul class="nav">
-            <a href="home.html">Home</a>
-            <a href="seating.html">Seating</a>
-            <a href="menu.html">Menu</a>
-            <a href="help.html">Help</a>
-            <a href="cart.html">Cart</a>
-            <a class="active" href="payment.html">Payment</a>
-          </ul>
-        </nav>
-    </header>
+  <header>
+      <nav>
+        <ul class="nav">
+          <a href="home.html">Home</a>
+          <a href="seating.html">Seating</a>
+          <a href="menu.html">Menu</a>
+          <a href="help.html">Help</a>
+          <a class="active" href="payment.html">Payment</a>
+        </ul>
+      </nav>
+  </header>
+  <h1>PAYMENT</h1>
+  <div class="wrapper">
+      <div class="total">
+        Total:<br>$237.52
+      </div>
 
-    <div class="wrapper">
+      <table class="credit-card">
+        <tr>
+          <td id="cash">
+            <img src="assets/payment/cash.png" alt="cash">
+          </td>
+          <td id="visa">
+            <img src="assets/payment/visa.png" alt="visa">
+          </td>
+          <td id="mastercard"> 
+            <img src="assets/payment/mastercard.png" alt="mastercard">
+          </td>
+        </tr>
+        <tr>
+          <td id="octopus">
+            <img src="assets/payment/octopus.png" alt="octopus">
+          </td>
+          <td id="alipay">
+            <img src="assets/payment/alipay.png" alt="visa">
+          </td>
+          <td id="unionpay">
+            <img src="assets/payment/unionpay.png" alt="unionpay">
+          </td>
+        </tr>
+      </table>
 
-        <div class="total">
-          <div>Your Balance</div>
-          <div>$237.52</div>
-          <div>View Cart</div>
-        </div>
-
-        <div class="credit-card">
-          <div id="cash"><img src="./payment/cash.jpeg" alt="cash"></div>
-          <div id="visa"><img src="./payment/visa.jpeg" alt="visa" width="150"></div>
-          <div id="MasterCard"><img src="./payment/mastercard.jpeg" alt="mastercard"></div>
-          <div id="unionpay"><img src="./payment/unionpay.jpeg" alt="unionpay"></div>
-          <div id="alipay"><img src="./payment/alipay.jpeg" alt="alipay" width="200"></div>
-          <div id="octopus"><img src="./payment/octopus.jpeg" alt="alipay" width="200"></div>
-        </div>
-
-    </div>
-
-    <div class="talk-box">
-      <h1>How would you like to pay?</h1>
-      <form>
-          <section>
-              <div class="container">
-                <div class="texts">
-                </div>
-                <div id="pageerror"></div>
-              </div>
-          </section>
-      </form>
   </div>
+
+  <div class="talk-box">
+    <h1> How would you like to pay ? </h1>
+    <div class="container">
+      <div class="texts">
+      </div>
+      <div id="pageerror"></div>
+    </div>
+  </div>
+
   <script src="voice.js"></script>
+  
 </body>
 </html>

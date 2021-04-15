@@ -1,0 +1,23 @@
+/* background image */
+div
+{
+    display: grid; 
+    position: relative;
+}
+  
+div::after
+{
+    content: "";
+    background: url(bg_cart.png);
+    background-color: #EFF4F7; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -20;
+}
+/* background image */
