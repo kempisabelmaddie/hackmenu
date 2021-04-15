@@ -6,47 +6,64 @@ window.SpeechRecognition =
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
+var textIndex = 0;
 
-let p = document.createElement("p");
+let div = document.createElement("div");
+div.classList.add("spoken");
 
 const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
 const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
 
+const pushToTextbox = (text) => {
+  var newdiv = document.createElement("div");
+  newdiv.classList.add("replay");
+  newdiv.innerHTML = text;
+  texts.appendChild(newdiv);
+}
+
 recognition.addEventListener("result", (e) => {
-  texts.appendChild(p);
+  texts.appendChild(div);
   const text = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
-    .join("");
+    .join("").substr(textIndex);
 
-  p.innerText = text;
+  div.innerHTML = text;
   if (e.results[0].isFinal) {
+    textIndex = text.length;
+    var hasAction = false;
     if (text.includes("page")) {
-      p = document.createElement("p");
-      p.classList.add("replay");
-      p.innerText = "Okay, navigating you to next page";
-      texts.appendChild(p);
+      pushToTextbox("Okay, navigating you to next page");
       navigate(text);
+      hasAction = true;
     }
+    var foodAdded = [];
     for (var i = 0; i<food.length; i++){
       if (text.includes(food[i].toLowerCase())){
-        p = document.createElement("p");
-        p.classList.add("replay");
-        p.innerText = "Sure, adding "+food[i].toLowerCase()+" to cart";
-        texts.appendChild(p);
         addCart(food[i]);
+        foodAdded.push(food[i]);
+        hasAction = true;
       }
+    }
+    if (foodAdded.length > 0){
+      pushToTextbox("Sure, added "+foodAdded.join(", ")+" to cart")
     }
     for (var i = 0; i<payments.length; i++){
-      if (text.includes(payments[i].toLowerCase())){
-        p = document.createElement("p");
-        p.classList.add("replay");
-        p.innerText = "Sure, will check out by "+payments[i];
-        texts.appendChild(p);
+      if (text.includes(payments[i].toLowerCase()) || text.includes(payments[i])){
+        pushToTextbox("Sure, will check out by "+payments[i]);
         payment(payments[i]);
+        hasAction = true;
       }
     }
-    p = document.createElement("p");
+    if (!hasAction){
+      pushToTextbox("Sorry, we haven't detected an action to perform. Can you try again?")
+    }
+    const len = () => texts.innerHTML.match(/class=/g).length
+    while (len() > 4){
+      texts.removeChild(texts.firstChild);
+    }
+    div = document.createElement("div");
+    div.classList.add("spoken");
   }
 });
 
@@ -109,9 +126,7 @@ function addCart(text){
 function payment(text){
   var idsymbol = "#"
   text = text.replace(" ","").toLowerCase();
-  // console.log(idsymbol)
-  console.log(idsymbol.concat(text))
-  let myElement = document.querySelector(idsymbol.concat(text));
+  var myElement = document.querySelector(idsymbol+text);
   myElement.style.backgroundColor = "green";
 }
 
