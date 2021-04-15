@@ -75,13 +75,8 @@
   border-radius: 25px;
   flex: 1;
 }
-/* background image */
-div {
-  display: grid;
-  position: relative;
-}
 
-div::after {
+div::before {
   content: "";
   background: url(bg_menu.png);
   background-color: #eff4f7;
