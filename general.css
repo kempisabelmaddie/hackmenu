@@ -1,3 +1,7 @@
+* {
+  font-family: "Baskerville", sans-serif;
+}
+
 /* navigation bar */
 .nav {
   overflow: hidden;
