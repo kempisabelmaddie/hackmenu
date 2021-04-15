@@ -14,7 +14,7 @@
   font-size: 17px;
   background-color: #999;
   flex: 1;
-  margin-right: 25px;
+  margin: 15px;
 }
 
 .nav a.active {
