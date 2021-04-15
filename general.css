@@ -54,7 +54,7 @@
   background-color: #afa;
 }
 /* talkbar as a footer */
-.talk-box {
+/* .talk-box {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -64,5 +64,5 @@
   text-align: center;
   background-image: url(talkbar.png);
   background-repeat: no-repeat;
-}
+} */
 /* talkbar as a footer */
