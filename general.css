@@ -24,6 +24,8 @@
 
 /* talk bar */
 .talk-box{
-    background-color: mistyrose;
-    height: 160px;
+    background-color: #FFFFFF;    
+    height: 79px;
+    width: fit-content;
 }
+
