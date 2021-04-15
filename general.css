@@ -22,10 +22,17 @@
     color: black;
 }
 
-/* talk bar */
-.talk-box{
-    background-color: #FFFFFF;    
-    height: 79px;
-    width: fit-content;
-}
+/* talkbar as a footer */
+.talk-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    background-image: url(talkbar.png);
+    background-repeat: no-repeat;
+ }
+/* talkbar as a footer */
 

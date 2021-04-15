@@ -6,6 +6,41 @@
     <link rel="stylesheet" href="general.css">
 </head>
 
+<style>
+  #grid
+  {
+    display:grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 200px 200px;
+    grid-gap: 25px;
+  }
+
+  #grid > div
+  {
+    padding: .1em;
+    background: #FFFFFF;
+    border-radius: 30px;
+  }
+
+  /* text font */
+  .p1
+  {
+    font-family: Krungthep;
+  }
+
+  .p2
+  {
+    font-family: "Tiro Tamil";
+  }
+
+  .p3
+  {
+    font-family: 'Courier New', Courier, monospace;
+  }
+  /* text font */
+
+</style>
+
 <body>
     <header>
         <nav>
@@ -19,28 +54,26 @@
         </nav>
     </header>
 
-
     <div class="wrapper">
-
-        <div class="total">
-          <div>Your Balance</div>
-          <div>$237.52</div>
-          <div>View Cart</div>
-        </div>
-
-        <div class="credit-card">
-          <div id="cash"><img src="./payment/cash.jpeg" alt="cash"></div>
-          <div id="visa"><img src="./payment/visa.jpeg" alt="visa" width="150"></div>
-          <div id="MasterCard"><img src="./payment/mastercard.jpeg" alt="mastercard"></div>
-          <div id="unionpay"><img src="./payment/unionpay.jpeg" alt="unionpay"></div>
-          <div id="alipay"><img src="./payment/alipay.jpeg" alt="alipay" width="200"></div>
-          <div id="octopus"><img src="./payment/octopus.jpeg" alt="alipay" width="200"></div>
-        </div>
-      
+      <div class="total">
+          <p class="p1"> Your Balance </p>
+          <p class="p2"> $ 237.52 </p>
+          <p class="p3"> View Cart </p>
       </div>
 
+      <div class="credit-card"></div>
+      <div id="grid">
+        <div id="cash"> <img src="./payment/cash.png" alt="cash"> </div>
+        <div id="visa"> <img src="./payment/visa.png" alt="visa"> </div>
+        <div id="MasterCard"> <img src="./payment/mastercard.png" alt="mastercard"> </div>
+        <div id="unionpay"> <img src="./payment/unionpay.png" alt="unionpay"> </div>
+        <div id="alipay"> <img src="./payment/alipay.png" alt="alipay"> </div>
+        <div id="octopus"> <img src="./payment/octopus.png" alt="octopus"> </div>
+      </div>
+    </div>
+
     <div class="talk-box">
-      <h1>How would you like to pay?</h1>
+      <p class="p3"> How would you like to pay ? </p>
       <form>
           <section>
               <div class="container">
@@ -52,9 +85,7 @@
       </form>
   </div>
 
-
   <script src="voice.js"></script>
-
   
 </body>
 </html>
