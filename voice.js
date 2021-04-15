@@ -48,12 +48,19 @@ recognition.addEventListener("result", (e) => {
     if (foodAdded.length > 0){
       pushToTextbox("Sure, added "+foodAdded.join(", ")+" to cart")
     }
+    var foundPayments = []
     for (var i = 0; i<payments.length; i++){
       if (text.includes(payments[i].toLowerCase()) || text.includes(payments[i])){
-        pushToTextbox("Sure, will check out by "+payments[i]);
-        payment(payments[i]);
-        hasAction = true;
+        foundPayments.push(payments[i]);
       }
+    }
+    if (foundPayments.length===1){
+      pushToTextbox("Sure, will check out by "+foundPayments[0]);
+      payment(foundPayments[0]);
+      hasAction = true;
+    } else if (foundPayments.length>1){
+      pushToTextbox("You mentioned "+foundPayments.join(", ")+". Which method would you prefer?");
+      hasAction = true;
     }
     if (!hasAction){
       pushToTextbox("Sorry, we haven't detected an action to perform. Can you try again?")
