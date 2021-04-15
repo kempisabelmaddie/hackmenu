@@ -1,13 +1,14 @@
 /* layout */
 .wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1000px 200px;
   height: 300px;
-  grid-gap: 12px;
+  grid-gap: 12px; */
+  display: flex;
 }
 
 .menu {
-  background-color: cornflowerblue;
+  flex: 3;
 }
 
 .menu-cards {
@@ -17,18 +18,28 @@
 
 .menu-cards > div {
   background-color: #f1f1f1;
-  width: 180px;
   height: 280px;
   margin: 10px;
+  flex: 1;
   text-align: center;
+  border-radius: 20px;
 }
 
 .h4 {
-  font-size: 42px;
+  font-size: 60px;
+}
+
+.h1 {
+  font-size: 72px;
 }
 
 .p {
   font-size: 12px;
+}
+
+.img {
+  align-self: center;
+  object-fit: cover;
 }
 
 .checkout {
@@ -36,7 +47,7 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  width: 250px;
+  flex: 1;
   align-items: center;
 }
 
