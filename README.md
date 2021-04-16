@@ -2,6 +2,13 @@
 
 A voice-controlled menu driven by a **voice commands**.
 
+In light of COVID-19, on-site dining has always been ranking the highest risk of speading the virus.
+
+To reduce the chance of infection, we devlop this one-stop system which minimizes diner's contact with potential virus carrier (waiters and common equiment such as menus) with voice commands and screening display.
+
+In short, 
+we avoid using hands to touch by sight and speaking in your own seat.
+
 You are offered with a food menu, by giving voice commands, you could **_get your seat_**, **_order food_**, **_make requests_** and **_chect out_** by giving corresponding commands.
 
    ## To get seated
@@ -10,7 +17,7 @@ You are offered with a food menu, by giving voice commands, you could **_get you
    To get your table, tell your number of attendees - **_Speak, "[number of people]."_**
    
     e.g. "4 people."
-    You will be assigned to a table for 4 people.
+    Your assigned table for 4 people will be highlighted to direct your way.
     
    ## To navigate between pages
    There are **5** pages in total: HOME Page, SEATING Page, MENU Page, CART ppage and PAYMENT page.
@@ -38,8 +45,8 @@ You are offered with a food menu, by giving voice commands, you could **_get you
    
    To make requests - **_Speak, "[request]."_**
    
-      e.g. "Water."
-      You request will be received.
+     e.g. "Water."
+     You request will be received.
     
    ## To check out
    Various payment methods are displayed in the checkout page. 
