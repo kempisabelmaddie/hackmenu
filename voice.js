@@ -49,10 +49,12 @@ recognition.addEventListener("result", (e) => {
     }
     var foodAdded = [];
     for (var i = 0; i<food.length; i++){
-      if (text.includes(food[i].toLowerCase())){
-        addCart(food[i]);
-        foodAdded.push(food[i]);
+      var f = food[i].toLowerCase();
+      var count = text.split(f).length - 1;
+      if (count > 0){
+        foodAdded.push(count.toString()+" "+food[i]+(count>1&&food[i][food[i].length-1]!=="s"?"s":""));
         hasAction = true;
+        for (var j = 0; j<count; j++){addCart(food[i]);}
       }
     }
     if (foodAdded.length > 0){
