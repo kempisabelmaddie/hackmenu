@@ -11,7 +11,7 @@ let div = document.createElement("div");
 div.classList.add("spoken");
 
 const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
-const help = ["Cutlery","Water","Payment","Cleaning","Other"];
+const help = ["Cutlery","Water","Payment","Cleaning","Others"];
 const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
 const homepage = ['dine in', 'take away', 'takeaway'];
 
