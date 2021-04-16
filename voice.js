@@ -6,15 +6,14 @@ window.SpeechRecognition =
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
-var textIndex = 0;
 
 let div = document.createElement("div");
 div.classList.add("spoken");
 
 const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
-const help = ["Cutlery","Water","Payment","Cleaning","Others"];
+const help = ["Cutlery","Water","Payment","Cleaning","Other"];
 const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
-const homepage = ['Dine-in', 'takeaway'];
+const homepage = ['dine in', 'take away'];
 
 const pushToTextbox = (text) => {
   var newdiv = document.createElement("div");
@@ -38,11 +37,10 @@ recognition.addEventListener("result", (e) => {
   const text = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
-    .join("").substr(textIndex);
+    .join("");
 
   div.innerHTML = text;
   if (e.results[0].isFinal) {
-    textIndex = text.length;
     var hasAction = false;
     if (text.includes("page")) {
       pushToTextbox("Okay, attempting to navigate you to the corresponding page");
@@ -51,10 +49,12 @@ recognition.addEventListener("result", (e) => {
     }
     var foodAdded = [];
     for (var i = 0; i<food.length; i++){
-      if (text.includes(food[i].toLowerCase())){
-        addCart(food[i]);
-        foodAdded.push(food[i]);
+      var f = food[i].toLowerCase();
+      var count = text.split(f).length - 1;
+      if (count > 0){
+        foodAdded.push(count.toString()+" "+food[i]+(count>1&&food[i][food[i].length-1]!=="s"?"s":""));
         hasAction = true;
+        for (var j = 0; j<count; j++){addCart(food[i]);}
       }
     }
     if (foodAdded.length > 0){
@@ -72,6 +72,22 @@ recognition.addEventListener("result", (e) => {
       hasAction = true;
     } else if (foundPayments.length>1){
       pushToTextbox("You mentioned "+foundPayments.join(", ")+". Which method would you prefer?");
+      lightup("");
+      hasAction = true;
+    }
+    var foundSeating = []
+    for (var i = 0; i<homepage.length; i++){
+      if (text.includes(homepage[i].toLowerCase()) || text.includes(homepage[i])){
+        foundSeating.push(homepage[i]);
+      }
+    }
+    if (foundSeating.length===1){
+      pushToTextbox("Sure, you will "+foundSeating[0]);
+      lightup(foundSeating[0]);
+      hasAction = true;
+    } else if (foundSeating.length>1){
+      pushToTextbox("You mentioned "+foundSeating.join(", ")+". Please confirm your choice.");
+      lightup("");
       hasAction = true;
     }
     var helpFound = [];
@@ -80,7 +96,7 @@ recognition.addEventListener("result", (e) => {
         if (!text.includes("page")){
           helpFound.push(help[i]);
           hasAction = true;
-          lightup(help[i]);
+          lightup(help[i],true);
         }
       }
     }
@@ -98,10 +114,10 @@ recognition.addEventListener("result", (e) => {
       pushToTextbox("Sorry, we haven't detected an action to perform. Can you try again?")
     }
     p = document.createElement("p");
-    const len = () => texts.innerHTML.match(/class=/g).length
-    while (len() > 4){
-      texts.removeChild(texts.firstChild);
-    }
+    // const len = () => texts.innerHTML.match(/class=/g).length
+    // while (len() > 4){
+    //   texts.removeChild(texts.firstChild);
+    // }
     div = document.createElement("div");
     div.classList.add("spoken");
   }
@@ -115,12 +131,11 @@ recognition.start();
 //functions---------------------------------------------------------------------------------------
 
 function navigate(text){
-  var words = text.split(" ");
   var foundPage = false;
   const pages = ["home","menu","seating","help","payment"];
-  for (var i = 0; i<words.length; i++){
-    if (pages.includes(words[i])){
-      window.location.href = words[i]+".html";
+  for (var i = 0; i<pages.length; i++){
+    if (text.includes(pages[i])){
+      window.location.href = pages[i]+".html";
       foundPage = true;
       break;
     }
@@ -137,28 +152,37 @@ function addCart(text){
   document.getElementById("checkout-cards").appendChild(div);
 }
 
-function lightup(text){
+function lightup(text,allowMulti = false){
   var idsymbol = "#"
   text = text.replace(" ","").toLowerCase();
+  if (!allowMulti){
+    var elems = document.getElementsByClassName("lightable");
+    for (var i = 0; i<elems.length; i++){
+      elems[i].style.backgroundColor = "#fff";
+    }
+  }
   var myElement = document.querySelector(idsymbol+text);
-  myElement.style.backgroundColor = "green";
+  myElement.style.backgroundColor = "#77ff77";
 }
 
 function seating(text){
   console.log(text)
-  if (text.includes("4"||"four")){
-    document.getElementById('map').src='./UI/4.png';
-  }
-  else if(text.includes("2"||"two")){
+  if(text.includes("1")||text.includes("one")||text.includes("2")||text.includes("two")){
     document.getElementById('map').src='./UI/2.png';
   }
-  else if(text.includes("3"||"three")){
+  else if(text.includes("3")||text.includes("three")){
     document.getElementById('map').src='./UI/3.png';
   }
-  else if(text.includes("6"||"six")){
-    document.getElementById('map').src='./UI/6.png';
+  else if (text.includes("4")||text.includes("four")){
+    document.getElementById('map').src='./UI/4.png';
   }
-  //document.getElementById('map').src='./UI/MAP.png';
+  else if(text.includes("5")||text.includes("five")||text.includes("6")||text.includes("six")){
+    document.getElementById('map').src='./UI/6.png';
+  } else {
+    document.getElementById('map').src='./UI/MAP.png';
+    pushToTextbox("Sorry, we don't have a table large enough for "+text+" people.");
+  }
+  //
 }
 
 function scrollButtom(){

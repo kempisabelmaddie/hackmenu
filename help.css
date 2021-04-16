@@ -1,25 +1,25 @@
 /* layout */
 .wrapper {
-    /* display: grid;
+  /* display: grid;
       grid-template-columns: 625px 625px;
       height:300px;
       grid-gap: 12px; */
-    display: flex;
-  }
-  
-  .total {
-    background-color: #ddd;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    flex: 1;
-    margin: 25px;
-  }
-  
-  /* .total > div {
+  display: flex;
+}
+
+.total {
+  background-color: #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  flex: 1;
+  margin: 25px;
+}
+
+/* .total > div {
     height: 80%;
     width: 100%;
     display: flex;
@@ -40,46 +40,48 @@
     text-align: center;
     font-size: 30px;
   } */
-  
-  .credit-card {
-    flex: 2;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-  }
-  
-  td {
-    padding: 25px;
-    flex: 1;
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    border: 5px solid black;
-    border-radius: 25px;
-    border-collapse: collapse;
-    background-color: #fff;
-  }
-  
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 80px;
-  }
-  
-  .wrapper::before {
-    content: "";
-    background: url(assets/pages/Helppage.png);
-    background-color: #eff4f7;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.3;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    z-index: -20;
-  }
-  /* background image */
-  
+
+.credit-card {
+  width: 100%;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+}
+
+td {
+  padding: 25px 75px;
+  flex: 1;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  border: 5px solid black;
+  border-radius: 25px;
+  border-collapse: collapse;
+  background-color: #fff;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+}
+
+.wrapper::before {
+  content: "";
+  background: url(assets/pages/Helppage.png);
+  background-color: #eff4f7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -20;
+}
+/* background image */
