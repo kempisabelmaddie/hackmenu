@@ -24,6 +24,11 @@ You could **_get your seat_**, **_order food_**, **_make requests_** and **_chec
    Open "home.html" with the **Chrome browser**, then press "Allow" when microphone access request is prompted.
    <img src="https://user-images.githubusercontent.com/80112384/115049894-c9904a80-9f0d-11eb-8eb3-442b17f458d8.png">
    
+   To choose your dining method - **_Speak, "[dining method]"_**
+   
+    e.g. "Dine in."
+    You have successfully chosen your dining method.
+   
    ## To get seated
    A floor plan of the restaurant is displayed.
    
