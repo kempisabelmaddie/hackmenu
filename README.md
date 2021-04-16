@@ -28,6 +28,9 @@ You are offered with a food menu, by giving voice commands, you could **_get you
    Note: You must order multiple instances of the same item separately.
     
     e.g. "Salad, salad, ice-cream."
+    1 salad and 1 ice-cream will be added into your cart.
+    
+    e.g. "Salad, ice-cream, salad."
     2 salad and 1 ice-cream will be added into your cart.
     
    ## To make requests
