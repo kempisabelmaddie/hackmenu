@@ -8,28 +8,35 @@
 
 <body>
     <header>
-        <h1>HOME</h1>
         <nav>
             <ul class="nav">
               <a class ="active" href="home.html">Home</a>
               <a href="seating.html">Seating</a>
               <a href="menu.html">Menu</a>
-              <a href="cart.html">Cart</a>
+              <a href="help.html">Help</a>
               <a href="payment.html">Payment</a>
             </ul>
           </nav>
     </header>
+    <table class="credit-card">
+      <tr>
+        <td class="lightable" id="dinein">
+          <h2>DINE IN</h2>
+        </td>
+      </tr>
+      <tr>
+        <td class="lightable" id="takeaway">
+          <h2>TAKE AWAY</h2>
+        </td>
+      </tr>
+  </table>
     <div class="talk-box">
         <h1>Which page would you like to go to?</h1>
-        <form>
-            <section>
-                <div class="container">
-                  <div class="texts">
-                  </div>
-                  <div id="pageerror"></div>
-                </div>
-            </section>
-        </form>
+        <div class="container">
+          <div class="texts">
+            <div id="talk-box-bottom"></div>
+          </div>
+        </div>
     </div>
     <script src="voice.js"></script>
 </body>
