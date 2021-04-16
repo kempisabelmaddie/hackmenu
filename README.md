@@ -4,17 +4,17 @@ A voice-controlled menu driven by a **voice commands**.
 
 In light of COVID-19, on-site dining has always been ranking the highest risk of speading the virus.
 
-To reduce the chance of infection, we devlop this one-stop system which minimizes diner's contact with potential virus carrier (waiters and common equiment such as menus) with voice commands and screening display.
+To reduce the chance of infection, we developed this one-stop system which minimizes diner's contact with potential virus carriers (waiters and common equiment such as menus) with voice commands and screening display.
 
 In short, 
-we avoid using hands to touch by sight and speaking in your own seat.
+we minimise the social contact between staff and customers, by utilising an integrated voice catering system.
 
 <br />
 
 ---
-You are offered with a food menu.
+You are offered a food menu.
 
-You could **_get your seat_**, **_order food_**, **_make requests_** and **_chect out_** by giving corresponding commands.
+You could **_get your seat_**, **_order food_**, **_make requests_** and **_check out_** by giving corresponding commands.
 
 ---
 <br />
@@ -26,10 +26,10 @@ You could **_get your seat_**, **_order food_**, **_make requests_** and **_chec
    To get your table, tell your number of attendees - **_Speak, "[number of people]."_**
    
     e.g. "4 people."
-    Your assigned table for 4 people will be highlighted to direct your way.
+    You are assigned a table for 4 people will be highlighted to direct your way.
     
    ## To navigate between pages
-   There are **5** pages in total: HOME Page, SEATING Page, MENU Page, CART ppage and PAYMENT page.
+   There are **5** pages in total: HOME Page, SEATING Page, MENU Page, HELP page and PAYMENT page.
    
    To switch between pages - **_Speak, "[pagename] page."_**
     
@@ -41,13 +41,13 @@ You could **_get your seat_**, **_order food_**, **_make requests_** and **_chec
    
    To order the items - **_Speak, "[menu item]."_**
     
-   Note: You must order multiple instances of the same item separately.
-    
-    e.g. "Salad, salad, ice-cream."
-    1 salad and 1 ice-cream will be added into your cart.
-    
     e.g. "Salad, ice-cream, salad."
     2 salad and 1 ice-cream will be added into your cart.
+  
+   To remove the items - **_Speak, "cancel [menu item]."_**
+    
+    e.g. "cancel salad."
+    salad will be removed from your cart.
     
    ## To make requests
    Available requests are displayed.

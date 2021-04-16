@@ -13,7 +13,7 @@ div.classList.add("spoken");
 const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
 const help = ["Cutlery","Water","Payment","Cleaning","Other"];
 const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
-const homepage = ['dine in', 'take away'];
+const homepage = ['dine in', 'take away', 'takeaway'];
 
 const pushToTextbox = (text) => {
   var newdiv = document.createElement("div");
@@ -48,17 +48,28 @@ recognition.addEventListener("result", (e) => {
       hasAction = true;
     }
     var foodAdded = [];
+    var cancel = text.includes("cancel")
     for (var i = 0; i<food.length; i++){
       var f = food[i].toLowerCase();
       var count = text.split(f).length - 1;
       if (count > 0){
         foodAdded.push(count.toString()+" "+food[i]+(count>1&&food[i][food[i].length-1]!=="s"?"s":""));
         hasAction = true;
-        for (var j = 0; j<count; j++){addCart(food[i]);}
+        if (cancel){
+          cancelOrder(food[i]);
+        }
+        else{
+          for (var j = 0; j<count; j++){addCart(food[i]);}
+        }
       }
     }
     if (foodAdded.length > 0){
-      pushToTextbox("Sure, added "+foodAdded.join(", ")+" to cart")
+      if (cancel){
+        pushToTextbox("We will cancel the order for "+foodAdded.join(", ")+" from cart (if found)")
+      }
+      else{
+        pushToTextbox("Sure, added "+foodAdded.join(", ")+" to cart")
+      }
     }
     var foundPayments = []
     for (var i = 0; i<payments.length; i++){
@@ -83,7 +94,7 @@ recognition.addEventListener("result", (e) => {
     }
     if (foundSeating.length===1){
       pushToTextbox("Sure, you will "+foundSeating[0]);
-      lightup(foundSeating[0]);
+      lightup(foundSeating[0].replace(" ", ""));
       hasAction = true;
     } else if (foundSeating.length>1){
       pushToTextbox("You mentioned "+foundSeating.join(", ")+". Please confirm your choice.");
@@ -153,7 +164,6 @@ function addCart(text){
 }
 
 function lightup(text,allowMulti = false){
-  var idsymbol = "#"
   text = text.replace(" ","").toLowerCase();
   if (!allowMulti){
     var elems = document.getElementsByClassName("lightable");
@@ -161,7 +171,7 @@ function lightup(text,allowMulti = false){
       elems[i].style.backgroundColor = "#fff";
     }
   }
-  var myElement = document.querySelector(idsymbol+text);
+  var myElement = document.querySelector("#"+text);
   myElement.style.backgroundColor = "#77ff77";
 }
 
@@ -188,4 +198,16 @@ function seating(text){
 function scrollButtom(){
   var elmnt = document.getElementById("talk-box-bottom");
   elmnt.scrollIntoView();
+}
+
+function cancelOrder(cancelFood){
+  var cards = document.querySelectorAll("#checkout-cards > div");
+  var originalCards = document.querySelector("#checkout-cards");
+  for (var i = 0; i < cards.length; i++){
+    if (cards[i].innerHTML == cancelFood){
+      originalCards.removeChild(cards[i]);
+      break;
+    }
+ }
+  // list.removeChild(list.childNodes[0]);
 }
