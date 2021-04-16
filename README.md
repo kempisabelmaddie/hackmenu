@@ -56,7 +56,7 @@ You could **_get your seat_**, **_order food_**, **_make requests_** and **_chec
    To remove the items - **_Speak, "cancel [menu item]."_**
     
     e.g. "cancel salad."
-    salad will be removed from your cart.
+    1 salad will be removed from your cart.
     
    ## To make requests
    Available requests are displayed.
