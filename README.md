@@ -30,6 +30,14 @@ You are offered with a food menu, by giving voice commands, you could **_get you
     e.g. "Salad, salad, ice-cream."
     2 salad and 1 ice-cream will be added into your cart.
     
+   ## To make requests
+   Available requests are displayed.
+   
+   To make requests - **_Speak, "[request]."_**
+   
+      e.g. "Water."
+      You request will be received.
+    
    ## To check out
    Various payment methods are displayed in the checkout page. 
     
