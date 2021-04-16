@@ -9,7 +9,12 @@ To reduce the chance of infection, we devlop this one-stop system which minimize
 In short, 
 we avoid using hands to touch by sight and speaking in your own seat.
 
-You are offered with a food menu, by giving voice commands, you could **_get your seat_**, **_order food_**, **_make requests_** and **_chect out_** by giving corresponding commands.
+---
+You are offered with a food menu.
+
+By giving voice commands, you could
+
+**_get your seat_**, **_order food_**, **_make requests_** and **_chect out_** by giving corresponding commands.
 
    ## To get seated
    A floor plan of the restaurant is displayed.
