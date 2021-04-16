@@ -39,6 +39,8 @@
   text-align: center;
   background-image: url(talkbar.png);
   background-repeat: no-repeat;
+  max-height: 150px;
+  overflow: auto;
 }
 
 .texts {

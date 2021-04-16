@@ -14,16 +14,27 @@ div.classList.add("spoken");
 const food = ['Salad','Burger','Risotto','Ice Cream','Crepes'];
 const help = ["Cutlery","Water","Payment","Cleaning","Others"];
 const payments = ['Cash','Visa','MasterCard','Union Pay','Octopus'];
+const homepage = ['Dine-in', 'takeaway'];
 
 const pushToTextbox = (text) => {
   var newdiv = document.createElement("div");
   newdiv.classList.add("replay");
   newdiv.innerHTML = text;
-  texts.appendChild(newdiv);
+  let sp2 = document.getElementById("talk-box-bottom")
+  // texts.appendChild(newdiv);
+  texts.insertBefore(newdiv, sp2);
+  console.log(texts)
+  console.log(newdiv)
+  scrollButtom();
 }
 
 recognition.addEventListener("result", (e) => {
-  texts.appendChild(div);
+  let sp2 = document.getElementById("talk-box-bottom")
+  // texts.appendChild(div);
+  console.log(texts)
+  console.log(div)
+  texts.insertBefore(div, sp2);
+  scrollButtom();
   const text = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
@@ -76,9 +87,11 @@ recognition.addEventListener("result", (e) => {
     if (helpFound.length > 0){
       pushToTextbox("Sure, our staff will help you with "+helpFound.join(", ")+".");
     }
-    if (text.includes("4")) {
+    if (text.includes("4")||text.includes("2")||text.includes("6")||text.includes("3")||
+    text.includes("four")||text.includes("two")||text.includes("six")||text.includes("three")) {
       pushToTextbox("Okay, we'll provide an available table.");
-      seating();
+      hasAction=true;
+      seating(text);
     }
     //
     if (!hasAction){
@@ -100,20 +113,6 @@ recognition.addEventListener("end", () => {
 recognition.start();
 
 //functions---------------------------------------------------------------------------------------
-
-function incrementValue(){
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number').value = value;
-}
-
-function decrementValue(){
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value--;
-  document.getElementById('number').value = value;
-}
 
 function navigate(text){
   var words = text.split(" ");
@@ -145,6 +144,24 @@ function lightup(text){
   myElement.style.backgroundColor = "green";
 }
 
-function seating(){
-  document.getElementById('map').src='./UI/MAP.png';
+function seating(text){
+  console.log(text)
+  if (text.includes("4"||"four")){
+    document.getElementById('map').src='./UI/4.png';
+  }
+  else if(text.includes("2"||"two")){
+    document.getElementById('map').src='./UI/2.png';
+  }
+  else if(text.includes("3"||"three")){
+    document.getElementById('map').src='./UI/3.png';
+  }
+  else if(text.includes("6"||"six")){
+    document.getElementById('map').src='./UI/6.png';
+  }
+  //document.getElementById('map').src='./UI/MAP.png';
+}
+
+function scrollButtom(){
+  var elmnt = document.getElementById("talk-box-bottom");
+  elmnt.scrollIntoView();
 }
