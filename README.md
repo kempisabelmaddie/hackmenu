@@ -19,7 +19,10 @@ You could **_get your seat_**, **_order food_**, **_make requests_** and **_chec
 ---
 <br />
 
-
+   
+   ## To start
+   Open "home.html"
+   
    ## To get seated
    A floor plan of the restaurant is displayed.
    
